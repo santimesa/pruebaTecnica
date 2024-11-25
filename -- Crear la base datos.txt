@@ -1,0 +1,29 @@
+-- Crear la base datos
+CREATE DATABASE RedditData;
+-- Crear la tabla "colors"
+CREATE TABLE colors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    banner_background_color VARCHAR(400) NOT NULL
+);
+
+-- Crear la tabla "images"
+CREATE TABLE images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    icon_img VARCHAR(400) NOT NULL
+);
+
+-- Crear la tabla principal "subreddits"
+CREATE TABLE subreddits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_identification_api VARCHAR(20),
+    display_name VARCHAR(400) NOT NULL,
+    title VARCHAR(400) NOT NULL,
+    url VARCHAR(400) NOT NULL,
+    public_description VARCHAR(400),
+    created_utc VARCHAR(400),
+    description VARCHAR(400),
+    banner_color_id INT,
+    icon_img_id INT,
+    FOREIGN KEY (banner_color_id) REFERENCES colors(id),
+    FOREIGN KEY (icon_img_id) REFERENCES images(id)
+);

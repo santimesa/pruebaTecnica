@@ -1,2 +1,2 @@
-@api=http://localhost:3000/redditNewData
-POST {{api}}
+@api=http://localhost:3000/reddit
+GET {{api}}

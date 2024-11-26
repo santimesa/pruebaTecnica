@@ -6,7 +6,7 @@ export const getRedits = async (req, res) => {
     const connection = await getConnection();
 
     // Ejecutar la consulta y obtener resultados
-    const [results] = await connection.query('SELECT * FROM subreddits');
+    const [results] = await connection.query('SELECT * FROM subreddits   LEFT JOIN  colors ON subreddits.banner_color_id = colors.id LEFT JOIN images ON subreddits.icon_img_id = images.id;');
 
     // Mostrar los resultados en la consola para depuración
     console.log('Resultados obtenidos:', results);
